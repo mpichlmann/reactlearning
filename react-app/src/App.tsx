@@ -1,22 +1,20 @@
 import ListGroup from "./components/ListGroup";
-import { Fragment } from "react";
+import Alert from "./components/Alert";
+
 function App() {
   let items = ["new york", "san francisco", "brisbane", "sydney", "melbourne"];
 
-  items = [];
+  const handleSelectItem = (item: string) => {
+    console.log(item)
+  }
 
-  if (items.length === 0) return <p>No Item Found!</p>;
-
-  items.map((item) => <li>{item}</li>);
 
   return (
     <>
-      <h1>List</h1>
-      <ul className="list-group">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
+      <div>
+        <ListGroup items={items} heading="Cities" onSelectItem={handleSelectItem}/>
+        <Alert>Hello<span>World</span></Alert>
+        </div>
     </>
   );
 }
